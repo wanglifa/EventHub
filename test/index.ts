@@ -1,12 +1,12 @@
 import EventHub from '../src/index'
-
-const test1 = (message) => {
+type Test = (message: string) => void;
+const test1: Test = (message) => {
     const eventHub = new EventHub()
     console.assert(eventHub instanceof Object === true, 'eventHub 是个对象')
     console.log(message)
 }
 
-const test2 = (message) => {
+const test2: Test = (message) => {
     const eventHub = new EventHub()
     let called = false
     eventHub.on('xxx', (info) => {
@@ -20,7 +20,7 @@ const test2 = (message) => {
     }, 1000)
 }
 
-const test3 = (message) => {
+const test3: Test = (message) => {
     const eventHub = new EventHub()
     let called = false
     const fn1 = () => {
